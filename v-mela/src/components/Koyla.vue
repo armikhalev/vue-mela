@@ -1,30 +1,49 @@
 <template>
 <div id="koyla_page" class="row text-center col-xs-offset-4 col-xs-4 ">
 
-    <button type="submit" id="changeLanguageBtn" class="btn btn-primary">Change language</button>
+    <button v-on:click="changeLanguage_onClick" type="submit" id="changeLanguageBtn" class="btn btn-primary">Change language</button>
 
     <form>
         <div class="form-group">
-            <label id="languageTranslatedFromHeader" class="formHeader" for="wordToTranslate">langTranslateFrom </label>
-            <input type="text" placeholder="Type any word to translate" id="wordToTranslate" class="form-control wordToTranslate"><br>
+            <label id="languageTranslatedFromHeader" class="formHeader" for="wordToTranslate">{{ langTranslateFrom }}</label>
+            <input  v-on:keyup.enter="getWord(toTranslate)" v-model="toTranslate" type="text" placeholder="Type any word to translate" id="wordToTranslate" class="form-control wordToTranslate"><br>
         </div>
     </form>
 
-    <button type="submit" id="submitBtn" class="btn btn-success">Submit</button>
+    <button v-on:click="getWord(toTranslate)" type="submit" id="submitBtn" class="btn btn-success">Submit</button>
     
     <div class="row">
-        <label id="languageTranslatedToHeader" class="formHeader">langTranslateTo</label>
-        <div id="translation" class="translationDiv well well-lg">word</div>
+        <label id="languageTranslatedToHeader" class="formHeader">{{ langTranslateTo }}</label>
+        <div id="translation" class="translationDiv well well-lg">{{ word }}</div>
     </div>
 </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'koyla',
   data () {
     return {
-      msg: 'Se ya koyla'
+      word: 'Translate',
+      langTranslateFrom: 'english',
+      langTranslateTo: 'mela',
+      toTranslate: ''
+    }
+  },
+  methods: {
+    getWord (toTranslate) {
+      let wordsUrl = 'http://0.0.0.0:8000/koyla/'
+
+      axios.get(wordsUrl + this.langTranslateFrom + '/' + toTranslate).then((response) => {
+        let resp = response.data[0]
+        this.word = this.langTranslateFrom === 'english' ? resp.la : resp.word
+      })
+    },
+    changeLanguage_onClick () {
+      this.langTranslateFrom = this.langTranslateFrom === 'english' ? 'mela' : 'english'
+      this.langTranslateTo = this.langTranslateFrom === 'english' ? 'mela' : 'english'
     }
   }
 }

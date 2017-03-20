@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Koyla from '@/components/Koyla'
 import Latay from '@/components/Latay'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
-Vue.use(Router)
+Vue.use(Router, VueAxios, axios)
 
 export default new Router({
   mode: 'history',
