@@ -3,12 +3,11 @@
 
     <button v-on:click="changeLanguage_onClick" type="submit" id="changeLanguageBtn" class="btn btn-primary">Change language</button>
 
-    <form>
-        <div class="form-group">
-            <label id="languageTranslatedFromHeader" class="formHeader" for="wordToTranslate">{{ langTranslateFrom }}</label>
-            <input  v-on:keyup.enter="getWord(toTranslate)" v-model="toTranslate" type="text" placeholder="Type any word to translate" id="wordToTranslate" class="form-control wordToTranslate"><br>
-        </div>
-    </form>
+    <div class="form-group">
+        <label id="languageTranslatedFromHeader" class="formHeader" for="wordToTranslate">{{ langTranslateFrom }}</label>
+        <input  v-on:keyup.enter="getWord(toTranslate)" v-model="toTranslate" type="text" placeholder="Type any word to translate" id="wordToTranslate" class="form-control wordToTranslate"><br>
+        
+    </div>
 
     <button v-on:click="getWord(toTranslate)" type="submit" id="submitBtn" class="btn btn-success">Submit</button>
     
