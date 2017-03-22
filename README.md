@@ -12,4 +12,4 @@ Aurelia project needed to run the app files are 701Kb Minified by the cli in pro
 
 Angular project needed to run the app files are 898.6kb Minified by the cli in production mode and aot. Time spent about 4 hours not including configuration and learning of the basics. Notice that Angular project is reusing some of the styles and approaches from the Aurelia project.
 
-VueJS still unclear, couldn't figure out how to make files smaller. The standard command 'npm run build' created many files 1.4mB in size. Time spent on the project, about 3hours
+VueJS with the standard command 'npm run build' created many files 1.4mB in size, but by exluding .map.js files it became only 235kb. Time spent on the project, about 3hours.
