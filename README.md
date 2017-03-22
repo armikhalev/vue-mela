@@ -2,7 +2,8 @@ Creating an app for melasi.pythonanywhere.com using VueJS CLI.
 
 The point of this project was to compare the outcome in size and time spent on a project with the following conditions:
 
-first project is created without use of any framework, only a bit of jQuery to handle Ajax call and DOM manipulation. MVC design pattern was used as the basis. You can look at the repositary with this project at https://github.com/armikhalev/melasi_frontend . Second project was utilizing Aurelia framework. Third project (this) is using Angular2.4 framework (indicating version bcse it changes rapidly).
+first project is created without use of any framework, only a bit of jQuery to handle Ajax call and DOM manipulation. MVC design pattern was used as the basis. You can look at the repositary with this project at https://github.com/armikhalev/melasi_frontend . Second project was utilizing Aurelia framework. Third project was using Angular2.4 framework (indicating version bcse it changes rapidly). Third (this) project is using VueJS2.
+All frameworky project use Bootstrap for styling which is 37kB minified.
 
 Outcome:
 
